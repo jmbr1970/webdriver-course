@@ -3,7 +3,6 @@ package seleniumcourse.webdriver;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +14,17 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
+
+
+/**
+ * This is the first test... Nothing optimized.
+ * Just to learn some commands.
+ * 
+ *   
+ *   
+ * @author jmbr1970
+ *
+ */
 public class HomeTest {
 	
 	private WebDriver driver;
