@@ -20,6 +20,7 @@ public abstract class BaseTest {
 
 	protected WebDriver driver;
 	protected String baseUrl;
+	protected String browserPath;
 
 	/**
 	 * This method is executed before every @test annotated method
@@ -29,10 +30,11 @@ public abstract class BaseTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		baseUrl = "http://mango.es";
+		baseUrl = System.getProperty("baseUrl");
+		browserPath = System.getProperty("browserPath");
 		
 		//Locating the firefox program
-		File pathToFirefoxBinary = new File("E:/Program Files (x86)/Mozilla Firefox/firefox.exe");
+		File pathToFirefoxBinary = new File(browserPath);
 		FirefoxBinary binary = new FirefoxBinary(pathToFirefoxBinary);
 		
 		//Setting up a new firefox profile

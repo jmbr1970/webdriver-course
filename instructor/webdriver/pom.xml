@@ -51,6 +51,17 @@
 				<includes>
 					<include>**/AllTestsSuite.java</include>
 				</includes>
+				<systemProperties>
+					<property>
+						<name>baseUrl</name>
+						<value>http://mango.es</value>
+					</property>
+					<property>
+						<name>browserPath</name>
+						<value>E:/Program Files (x86)/Mozilla Firefox/firefox.exe</value>
+					</property>
+				</systemProperties>
+
 				</configuration>
 			</plugin>
 		</plugins>
