@@ -3,17 +3,9 @@ package seleniumcourse.webdriver;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsEqual.*;
 
-import java.io.File;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 
 
 /**
@@ -25,37 +17,11 @@ import org.openqa.selenium.firefox.FirefoxProfile;
  * @author Jose Blesa
  *
  */
-public class CookiesPolicyPageTest {
+public class CookiesPolicyPageTest extends BaseTest{
 	
-	private WebDriver driver;
-	private String baseUrl;
-	
-
-	/**
-	 * This method is executed before every @test annotated method
-	 *    
-	 * @throws Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-		
-		baseUrl = "http://mango.es";
-		
-		//Locating the firefox program
-		File pathToFirefoxBinary = new File("E:/Program Files (x86)/Mozilla Firefox/firefox.exe");
-		FirefoxBinary binary = new FirefoxBinary(pathToFirefoxBinary);
-		
-		//Setting up a new firefox profile
-		FirefoxProfile profile = new FirefoxProfile();
-		
-		//Creating a firefox driver instance.
-		driver = new FirefoxDriver(binary, profile);
-		
-	}
-
 	/**
 	 * Once we are in the cookies information page, let's check that
-	 * the div element showing the province selector is not displayed
+	 * the div element showing the province selector is displayed
 	 * 
 	 */	
 	@Test
@@ -81,18 +47,6 @@ public class CookiesPolicyPageTest {
 				driver.findElement(By.id("seleccionProvincia"));
 		
 		assertThat("The province selector is not displayed", seleccionProvincia.isDisplayed(), equalTo(true));
-	}
-	
-	
-	/**
-	 * This method is called just after each @test method is executed. 
-	 * @throws Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-		
-		//closing all browser windows opened during the test.
-		driver.quit();
 	}
 
 }
