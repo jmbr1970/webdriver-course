@@ -1,7 +1,7 @@
 package seleniumcourse.webdriver;
 
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.Is.*;
+import static org.hamcrest.core.IsEqual.*;
 
 import java.io.File;
 
@@ -25,7 +25,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
  * @author Jose Blesa
  *
  */
-public class HomeTest {
+public class CookiesPolicyPageTest {
 	
 	private WebDriver driver;
 	private String baseUrl;
@@ -53,24 +53,6 @@ public class HomeTest {
 		
 	}
 
-	@Test
-	public void test3PartyCookiesDisclaimerTestIsDisplayed() {
-		
-		//opening the urlBase
-		driver.get(baseUrl);
-		
-		//Locating the cookies disclaimer lines
-		WebElement coockiesDisclaimerLine1 = 
-				driver.findElement(By.cssSelector("span.cookieBar__line.cookieBar__line1"));
-		WebElement coockiesDisclaimerLine2 = 
-				driver.findElement(By.cssSelector("span.cookieBar__line.cookieBar__line2"));
-		
-		//Asserting that those lines are displayed
-		assertThat("Line 1 is not displayed", coockiesDisclaimerLine1.isDisplayed(), is(true));
-		assertThat("Line 2 is not displayed", coockiesDisclaimerLine2.isDisplayed(), is(true));
-	}
-	
-	
 	/**
 	 * Once we are in the cookies information page, let's check that
 	 * the div element showing the province selector is not displayed
@@ -92,13 +74,13 @@ public class HomeTest {
 		//getting all the window handlers
 		Object[] handlers = driver.getWindowHandles().toArray();
 		
-		assertThat("We haven't got two handlers", handlers.length, is(2));
+		assertThat("We haven't got two handlers", handlers.length, equalTo(2));
 		driver.switchTo().window((String)handlers[1]);
 		
 		WebElement seleccionProvincia =
 				driver.findElement(By.id("seleccionProvincia"));
 		
-		assertThat("The province selector is not displayed", seleccionProvincia.isDisplayed(), is(true));
+		assertThat("The province selector is not displayed", seleccionProvincia.isDisplayed(), equalTo(true));
 	}
 	
 	
